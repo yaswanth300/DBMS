@@ -1,0 +1,25 @@
+(1)
+mysql> DELIMITER ;
+mysql> DELIMITER $$
+mysql> CREATE FUNCTION dbmsInc ( value INT )
+    -> RETURNS INT
+    -> BEGIN
+    ->   DECLARE inc INT;
+    ->   SET inc = 0;
+    ->   label:
+    -> WHILE inc <= 30000 DO
+    ->     SET inc = inc + value;
+    ->   END
+    -> WHILE label;
+    ->   RETURN inc;
+    -> END; $$
+Query OK, 0 rows affected (0.00 sec)
+mysql>
+mysql> DELIMITER ;
+mysql> CALL dbmsinc(10000);
++---------------------+
+| result              |
++---------------------+
+| 0,10000,20000,30000 |
++---------------------+
+1 row in set (0.08 sec)

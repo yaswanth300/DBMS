@@ -1,0 +1,24 @@
+mysql> create table car(carno int,carname varchar(15),DOR date,returndate date);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into car values (1,'city','2014-05-23','2016-12-03'),(2,'jazz','2012-02-24','2013-05-06'),(3,'civic','2015-09-19','2017-10-14');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from car;
++-------+---------+------------+------------+
+| carno | carname | DOR        | returndate |
++-------+---------+------------+------------+
+|     1 | city    | 2014-05-23 | 2016-12-03 |
+|     2 | jazz    | 2012-02-24 | 2013-05-06 |
+|     3 | civic   | 2015-09-19 | 2017-10-14 |
++-------+---------+------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select carname,DOR,returndate from car where carno=2;
++---------+------------+------------+
+| carname | DOR        | returndate |
++---------+------------+------------+
+| jazz    | 2012-02-24 | 2013-05-06 |
++---------+------------+------------+
+1 row in set (0.00 sec)

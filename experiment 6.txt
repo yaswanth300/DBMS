@@ -1,0 +1,56 @@
+(1)
+mysql> select count(name),course from courseregistration group by course;
++-------------+----------------+
+| count(name) | course         |
++-------------+----------------+
+|           2 | dbms           |
+|           2 | ethicalhacking |
+|           1 | maths          |
++-------------+----------------+
+3 rows in set (0.00 sec)
+
+(2)
+mysql> select name,count(course) from courseregistration group by name;
++----------+---------------+
+| name     | count(course) |
++----------+---------------+
+| akash    |             1 |
+| earnest  |             2 |
+| kishore  |             1 |
+| rakesh   |             1 |
+| santhosh |             1 |
++----------+---------------+
+5 rows in set (0.00 sec)
+
+(3)
+mysql> select name,gender,mobileno from student order by regno;
++--------+--------+------------+
+| name   | gender | mobileno   |
++--------+--------+------------+
+| shekar | M      | 9262526321 |
+| riya   | F      | 9262526322 |
+| kumar  | M      | 9462526321 |
+| suresh | M      | 9262526323 |
+| ramiya | F      | 9262526324 |
+| mohan  | M      | 9262526325 |
+| balesh | M      | 9262526326 |
+| reshma | F      | 9262526327 |
+| kamala | F      | 9262525227 |
+| rohith | M      | 9264826327 |
+| kayal  | F      | 9262526348 |
++--------+--------+------------+
+11 rows in set (0.02 sec)
+
+(4)
+mysql> select*from faculty order by DOB ;
++-------+---------+--------+------------+------------+------------+
+| facno | facname | gender | DOB        | DOJ        | mobileno   |
++-------+---------+--------+------------+------------+------------+
+| 1     | shankar | M      | 1976-12-04 | 2001-04-21 | 9424685421 |
+| 3     | shekar  | M      | 1977-10-14 | 2005-08-11 | 9824685421 |
+| 4     | ram     | M      | 1983-05-01 | 2002-05-21 | 9424785421 |
+| 6     | sheela  | F      | 1986-07-16 | 2004-06-24 | 9429685425 |
+| 2     | mega    | F      | 2000-09-12 | 2022-01-30 | 9425685421 |
++-------+---------+--------+------------+------------+------------+
+5 rows in set (0.00 sec)
+

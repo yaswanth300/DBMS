@@ -1,0 +1,26 @@
+(1)
+subquery
+mysql> select facno,facname,department from faculty where facno in (select facno from course );
++-------+---------+------------+
+| facno | facname | department |
++-------+---------+------------+
+| 2     | mega    | CSE        |
+| 1     | shankar | CSE        |
+| 3     | shekar  | AIDS       |
+| 4     | ram     | EEE        |
+| 6     | sheela  | AIDS       |
+| 7     | kamal   | ECE        |
++-------+---------+------------+
+6 rows in set (0.00 sec)
+(2)
+correlated query
+mysql> select coursedes,coursescore from course where coursescore>(select avg(coursescore) from course);
++--------------+-------------+
+| coursedes    | coursescore |
++--------------+-------------+
+| maths        |          90 |
+| chemistry    |          70 |
+| cprogramming |          80 |
+| python       |         100 |
++--------------+-------------+
+4 rows in set (0.00 sec)

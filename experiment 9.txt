@@ -1,0 +1,45 @@
+(1)
+mysql> select department from faculty where status='working';
++------------+
+| department |
++------------+
+| CSE        |
+| AIDS       |
+| AIDS       |
++------------+
+3 rows in set (0.00 sec)
+
+(2)
+mysql> select*from courseregistration where coursescore=0;
++---------+----------------+----------------+-------------+
+| name    | course         | assessmenttest | coursescore |
++---------+----------------+----------------+-------------+
+| earnest | dbms           |              1 |           0 |
+| earnest | ethicalhacking |              1 |           0 |
++---------+----------------+----------------+-------------+
+2 rows in set (0.00 sec)
+
+(3)
+mysql> select course.coursedes,faculty.facname,faculty.department from course,faculty where faculty.facno=7 && course.facno=7;
++-----------+---------+------------+
+| coursedes | facname | department |
++-----------+---------+------------+
+| bioevs    | kamal   | ECE        |
++-----------+---------+------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+mysql> create user 'marcus'@'localhost' identified by '2653';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc car;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| carno      | int(11)     | NO   | PRI | 0       |       |
+| carname    | varchar(15) | YES  |     | NULL    |       |
+| DOR        | date        | YES  |     | NULL    |       |
+| returndate | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> grant all on car to 'marcus'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'marcus'@'localhost';
++---------------------------------------------------------------------------------------------------------------+
+| Grants for marcus@localhost                                                                                   |
++---------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'marcus'@'localhost' IDENTIFIED BY PASSWORD '*2C3D89CB268F10A53BF7431FA4E1A6224198AC54' |
+| GRANT ALL PRIVILEGES ON `mysql`.`car` TO 'marcus'@'localhost'                                                 |
++---------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke select on car from 'marcus'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'marcus'@'localhost';
++------------------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for marcus@localhost                                                                                                                    |
++------------------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'marcus'@'localhost' IDENTIFIED BY PASSWORD '*2C3D89CB268F10A53BF7431FA4E1A6224198AC54'                                  |
+| GRANT INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE VIEW, SHOW VIEW, TRIGGER ON `mysql`.`car` TO 'marcus'@'localhost' |
++------------------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke insert on car from 'marcus'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for 'marcus'@'localhost';
++----------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for marcus@localhost                                                                                                            |
++----------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'marcus'@'localhost' IDENTIFIED BY PASSWORD '*2C3D89CB268F10A53BF7431FA4E1A6224198AC54'                          |
+| GRANT UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE VIEW, SHOW VIEW, TRIGGER ON `mysql`.`car` TO 'marcus'@'localhost' |
++----------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)

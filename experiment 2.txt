@@ -1,0 +1,96 @@
+1.
+mysql> ALTER TABLE STUDENT
+    -> ADD PRIMARY KEY(Reg_no);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE STUDENT
+    -> ADD MobileNo
+    -> int;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> describe STUDENT;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Reg_no    | int(11)     | NO   | PRI | 0       |       |
+| Name      | varchar(15) | YES  |     | NULL    |       |
+| Gender    | char(1)     | YES  |     | NULL    |       |
+| DOB       | date        | YES  |     | NULL    |       |
+| Mobile_no | int(11)     | YES  |     | NULL    |       |
+| City      | char(15)    | YES  |     | NULL    |       |
+| MobileNo  | int(11)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+2.
+mysql> ALTER TABLE FACULTY
+    -> ADD CHECK (Gender='M'OR 'F');
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE FACULTY;
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| Fac_no    | int(11)    | YES  |     | NULL    |       |
+| Fac_name  | char(15)   | YES  |     | NULL    |       |
+| Gender    | char(1)    | YES  |     | NULL    |       |
+| DOB       | date       | YES  |     | NULL    |       |
+| DOJ       | date       | YES  |     | NULL    |       |
+| Mobile_no | int(11)    | YES  |     | NULL    |       |
+| Deptno    | varchar(4) | YES  |     | NULL    |       |
++-----------+------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+3.
+mysql> alter table dept
+    -> add foreign key(deptno) references employee(deptno);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc dept;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int(11)     | YES  | MUL | NULL    |       |
+| dname  | varchar(15) | YES  |     | NULL    |       |
+| loc    | varchar(15) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+4.
+mysql> ALTER TABLE DEPARTMENT
+    -> ADD PRIMARY KEY(Deptno);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe DEPARTMENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Deptno   | varchar(4)  | NO   | PRI |         |       |
+| Deptname | varchar(15) | YES  |     | NULL    |       |
+| Depthead | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+5.
+mysql> ALTER TABLE COURSE
+    -> ADD PRIMARY KEY(Course_no);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE COURSE
+    -> ADD CHECK(Sem_no>=1&&Sem_no<=6);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe COURSE;
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| Course_no   | int(11)  | NO   | PRI | 0       |       |
+| Course_des  | char(14) | YES  |     | NULL    |       |
+| Course_type | char(1)  | YES  |     | NULL    |       |
+| Sem_no      | char(1)  | YES  |     | NULL    |       |
+| Hall_no     | char(4)  | YES  |     | NULL    |       |
+| Fac_no      | char(4)  | YES  |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+6 rows in set (0.02 sec)

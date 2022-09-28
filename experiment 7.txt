@@ -1,0 +1,41 @@
+(1)
+mysql> select sname from studmarks where maths>80;
++--------+
+| sname  |
++--------+
+| shekar |
+| riya   |
++--------+
+2 rows in set (0.01 sec)
+
+(2)
+mysql> select*from courseregistration where assessmenttest>1;
++----------+----------------+----------------+
+| name     | course         | assessmenttest |
++----------+----------------+----------------+
+| rakesh   | dbms           |              4 |
+| akash    | ethicalhacking |              2 |
+| santhosh | ethicalhacking |              3 |
++----------+----------------+----------------+
+3 rows in set (0.00 sec)
+
+(3)
+mysql> select facname,max(DOJ) as recently_joined from faculty;
++---------+-----------------+
+| facname | recently_joined |
++---------+-----------------+
+| mega    | 2022-01-30      |
++---------+-----------------+
+1 row in set (0.00 sec)
+
+(4)
+mysql> select coursedes,coursescore from course where coursescore>62.2222;
++--------------+-------------+
+| coursedes    | coursescore |
++--------------+-------------+
+| maths        |          90 |
+| chemistry    |          70 |
+| cprogramming |          80 |
+| python       |         100 |
++--------------+-------------+
+4 rows in set (0.00 sec)

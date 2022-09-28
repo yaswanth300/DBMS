@@ -1,0 +1,97 @@
+(1)
+mysql> select*from course where coursetype='S' or coursetype='P';
++----------+--------------+------------+-------+--------+-------+
+| courseno | coursedes    | coursetype | semno | hallno | facno |
++----------+--------------+------------+-------+--------+-------+
+| 1        | maths        | S          | 2     | 441    | 1     |
+| 5        | cprogramming | P          | 1     | 203    | 5     |
+| 6        | python       | P          | 1     | 545    | 6     |
++----------+--------------+------------+-------+--------+-------+
+3 rows in set (0.00 sec)
+
+(2)
+mysql> select*from course where coursescore>=50&&coursescore<=80;
++----------+--------------+------------+-------+--------+-------+-------------+
+| courseno | coursedes    | coursetype | semno | hallno | facno | coursescore |
++----------+--------------+------------+-------+--------+-------+-------------+
+| 3        | chemistry    | M          | 2     | 521    | 3     |          70 |
+| 4        | cnetwork     | M          | 1     | 246    | 4     |          60 |
+| 5        | cprogramming | P          | 1     | 203    | 5     |          80 |
++----------+--------------+------------+-------+--------+-------+-------------+
+3 rows in set (0.00 sec)
+
+(3)
+mysql> select avg(coursescore)from course;
++------------------+
+| avg(coursescore) |
++------------------+
+|          64.2857 |
++------------------+
+1 row in set (0.00 sec)
+
+(4)
+mysql> select min(coursescore),max(coursescore) from course;
++------------------+------------------+
+| min(coursescore) | max(coursescore) |
++------------------+------------------+
+|               20 |              100 |
++------------------+------------------+
+1 row in set (0.00 sec)
+
+(5)
+mysql> select min(coursescore),max(coursescore) from course
+    -> where semno=2;
++------------------+------------------+
+| min(coursescore) | max(coursescore) |
++------------------+------------------+
+|               20 |              100 |
++------------------+------------------+
+1 row in set (0.00 sec)
+
+(6)
+mysql> select sname,avg(maths),avg(physics),avg(chemistry)from studmarks;
++--------+------------+--------------+----------------+
+| sname  | avg(maths) | avg(physics) | avg(chemistry) |
++--------+------------+--------------+----------------+
+| shekar |    83.3333 |      80.0000 |        54.6667 |
++--------+------------+--------------+----------------+
+1 row in set (0.00 sec)
+
+(7)
+mysql> select sum(coursescore) from course;
++------------------+
+| sum(coursescore) |
++------------------+
+|              450 |
++------------------+
+1 row in set (0.00 sec)
+
+(8)
+mysql> select coursedes,semno from course;
++--------------+-------+
+| coursedes    | semno |
++--------------+-------+
+| maths        | 2     |
+| physics      | 3     |
+| chemistry    | 2     |
+| cnetwork     | 1     |
+| cprogramming | 1     |
+| python       | 1     |
+| bioevs       | 2     |
++--------------+-------+
+7 rows in set (0.00 sec)
+
+(9)
+mysql> select studreg,coursedes from course;
++---------+--------------+
+| studreg | coursedes    |
++---------+--------------+
+|       5 | maths        |
+|       4 | physics      |
+|       6 | chemistry    |
+|      10 | cnetwork     |
+|       7 | cprogramming |
+|       9 | python       |
+|      15 | bioevs       |
++---------+--------------+
+7 rows in set (0.00 sec

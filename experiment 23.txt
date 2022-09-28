@@ -1,0 +1,32 @@
+mysql> create table hospital(pno int,pname varchar(15),admitdate date,ischarge date);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into hospital values(1,'earnest','2014-05-23','2016-12-03'),(2,'jero','2012-02-24','2013-05-06'),(3,'nivas','2015-09-19','2017-10-14');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+
+mysql> select*from hospital;
++------+---------+------------+------------+
+| pno  | pname   | admitdate  | ischarge   |
++------+---------+------------+------------+
+|    1 | earnest | 2014-05-23 | 2016-12-03 |
+|    2 | jero    | 2012-02-24 | 2013-05-06 |
+|    3 | nivas   | 2015-09-19 | 2017-10-14 |
++------+---------+------------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> delete from hospital where pno=3;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from hospital;
++------+---------+------------+------------+
+| pno  | pname   | admitdate  | ischarge   |
++------+---------+------------+------------+
+|    1 | earnest | 2014-05-23 | 2016-12-03 |
+|    2 | jero    | 2012-02-24 | 2013-05-06 |
++------+---------+------------+------------+
+2 rows in set (0.00 sec)
+
+

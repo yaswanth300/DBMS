@@ -1,0 +1,46 @@
+mysql> CREATE FUNCTION CalcIncome ( starting_value INT )
+    -> RETURNS INT
+    ->
+    -> BEGIN
+    ->
+    ->    DECLARE income INT;
+    ->
+    ->    SET income = 0;
+    ->
+    ->    label1: LOOP
+    ->      SET income = income + starting_value;
+    ->      IF income < 3000 THEN
+    ->        ITERATE label1;
+    ->      END IF;
+    ->      LEAVE label1;
+    ->    END LOOP label1;
+    ->
+    ->    RETURN income;
+    ->
+    -> END; //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> DELIMITER ;
+mysql> select calcincome (1000);
++-------------------+
+| calcincome (1000) |
++-------------------+
+|              3000 |
++-------------------+
+1 row in set (0.01 sec)
+
+
+mysql> select repeat(facname,2) from faculty;
++-------------------+
+| repeat(facname,2) |
++-------------------+
+| megamega          |
+| shankarshankar    |
+| shekarshekar      |
+| ramram            |
+| sheelasheela      |
+| kamalkamal        |
+| rajuraju          |
++-------------------+
+7 rows in set (0.02 sec)

@@ -1,0 +1,52 @@
+mysql> select * from courseregistration;
++----------+----------------+----------------+-------------+
+| name     | course         | assessmenttest | coursescore |
++----------+----------------+----------------+-------------+
+| earnest  | dbms           |              1 |           0 |
+| rakesh   | dbms           |              4 |          20 |
+| akash    | ethicalhacking |              2 |          10 |
+| santhosh | ethicalhacking |              3 |          20 |
+| kishore  | maths          |              0 |          10 |
+| earnest  | ethicalhacking |              1 |           0 |
++----------+----------------+----------------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> savepoint savepoint_courseregistration;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from courseregistration where name='akash';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from courseregistration;
++----------+----------------+----------------+-------------+
+| name     | course         | assessmenttest | coursescore |
++----------+----------------+----------------+-------------+
+| earnest  | dbms           |              1 |           0 |
+| rakesh   | dbms           |              4 |          20 |
+| santhosh | ethicalhacking |              3 |          20 |
+| kishore  | maths          |              0 |          10 |
+| earnest  | ethicalhacking |              1 |           0 |
++----------+----------------+----------------+-------------+
+5 rows in set (0.02 sec)
+
+mysql> rollback to savepoint savepoint_courseregistration;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select*from courseregistration;
++----------+----------------+----------------+-------------+
+| name     | course         | assessmenttest | coursescore |
++----------+----------------+----------------+-------------+
+| earnest  | dbms           |              1 |           0 |
+| rakesh   | dbms           |              4 |          20 |
+| akash    | ethicalhacking |              2 |          10 |
+| santhosh | ethicalhacking |              3 |          20 |
+| kishore  | maths          |              0 |          10 |
+| earnest  | ethicalhacking |              1 |           0 |
++----------+----------------+----------------+-------------+
+6 rows in set (0.00 sec)
